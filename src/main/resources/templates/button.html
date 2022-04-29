@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #image{
+            width: 512px;
+            transition: tranform 0.3s;
+        }
+
+        .rotate {
+            transform: rotate(45deg);
+        }
+
+        .normal {
+            transform: rotate(0deg);
+        }
+    </style>
+</head>
+<body>
+<script>
+    function Rotate() {
+        let element = document.getElementById('image');
+
+        if (element.className === "normal") {
+            element.className = "rotate";
+        }
+        else if ( element.className === "rotate") {
+            element.className = 'normal';
+        }
+    }
+</script>
+
+<img src="/static/assets/plus-circle-fill.svg" alt="onOff" onclick="Rotate()" class="normal" id="image">
+
+</body>
+</html>
