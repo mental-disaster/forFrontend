@@ -1,0 +1,30 @@
+.header {
+    align-items: center;
+}
+
+#hamburger {
+    display: none;
+    position: absolute;
+}
+
+#sideHamburger {
+    left: 1rem;
+}
+
+#headerHamburger {
+    right: 1rem;
+}
+
+@media (max-width: 680px) {
+    .header {
+        height: 1.8rem;
+    }
+
+    #hamburger {
+        display: inline;
+    }
+
+    #headerMenu {
+        display: none;
+    }
+}
