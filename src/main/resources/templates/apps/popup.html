@@ -9,7 +9,7 @@
             padding-bottom: 3000px;
         }
 
-        .popup-layer {
+        .layer-popup {
             display: none;
             position: fixed;
             top: 0;
@@ -20,20 +20,22 @@
             z-index: 100;
         }
 
-        .popup-layer.show {
+        .layer-popup.show {
             display: block;
         }
 
         .modal-dialog {
-            width: 300px;
-            margin: 40px auto;
+            width: 80%;
+            height: 60%;
+            margin: 5% auto;
             background-color: #fff;
         }
 
         .modal-content {
-            padding:10px 15px;
+            height: calc(100% - 1.6rem);
+            overflow-y: scroll;
+            padding: 0.8rem 1rem;
             text-align: center;
-            line-height: 100px;
         }
     </style>
 </head>
@@ -42,25 +44,23 @@
 <a href="#popup-layer" class="btn-open">팝업 열기</a>
 
 <div class="container">
-    <div class="popup-layer" id="popup-layer">
+    <div class="layer-popup" id="popup-layer">
         <div class="modal-dialog">
             <div class="modal-content">
-                팝업 내용입니다.
+                test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>test<br/>
             </div>
         </div>
     </div>
 </div>
 
 <script>
-    // 팝업 열기
     $(document).on("click", ".btn-open", function (){
         let target = $(this).attr("href");
         $(target).addClass("show");
     });
 
-    // 외부영역 클릭 시 팝업 닫기
     $(document).mouseup(function (e){
-        let popupLayer = $(".popup-layer");
+        let popupLayer = $(".layer-popup");
         if(popupLayer.has(e.target).length === 0){
             popupLayer.removeClass("show");
         }
