@@ -24,4 +24,7 @@ public class controller {
 
     @GetMapping("/checkbox")
     public String checkbox() { return "/apps/checkbox"; }
+
+    @GetMapping("/allinone")
+    public String allinone() { return "/apps/allinone"; }
 }

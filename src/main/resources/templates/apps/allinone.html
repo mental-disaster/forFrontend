@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <style>
+        body {
+            padding-bottom: 3000px;
+        }
+        #image{
+            cursor: pointer;
+            position: fixed;
+            right: 3%;
+            bottom: 3%;
+            width: 64px;
+        }
+        .rotate {
+            transform: rotate(45deg);
+            transition: 400ms all ease-out;
+        }
+        .normal {
+            transform: rotate(0deg);
+            transition: 400ms all ease-out;
+        }
+        #checkbox {
+            display: none;
+        }
+        #checkbox + .label img {
+            margin: 2px;
+        }
+        #checkbox:checked + .label img {
+            margin: 0;
+            border: 2px solid #0dcaf0;
+        }
+        .layer-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 100;
+        }
+        .layer-popup.show {
+            display: block;
+        }
+        .modal-dialog {
+            width: 80%;
+            height: 60%;
+            margin: 5% auto;
+            background-color: #fff;
+        }
+        .modal-content {
+            height: calc(100% - 1.6rem);
+            overflow-y: scroll;
+            padding: 0.8rem 1rem;
+        }
+        .fruits-img {
+            padding: 1px;
+            width: 128px;
+            height: 128px;
+        }
+        input[type="checkbox"] {
+            display: none;
+        }
+        input[type="checkbox"] + .label img {
+            margin: 4px;
+        }
+        input[type="checkbox"]:checked + .label img {
+            margin: 2px;
+            border: 2px solid #0dcaf0;
+            border-radius: 10%;
+        }
+    </style>
+</head>
+<body>
+
+<a href="#popup-layer" class="btn-open">
+    <img th:src="@{/assets/plus.png}" alt="on off button" onclick="Rotate();" class="normal" id="image">
+</a>
+
+<div class="container">
+    <div class="layer-popup" id="popup-layer">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="container">
+                    <div>
+                        <h1>검색 결과 동적 출력(한영 모두 지원)</h1>
+                        <input onkeyup="filter()" type="text" id="value" placeholder="검색어를 입력하십시오">
+                    </div>
+
+                    <div class="item">
+                        <input type="checkbox" id="cb-apple">
+                        <label for="cb-apple" class="label">
+                        <img class="fruits-img" th:src="@{/assets/fruits/apple.png}" id="apple" alt="사과"/>
+                        </label>
+                    </div>
+
+                    <div class="item">
+                        <input type="checkbox" id="cb-bananas">
+                        <label for="cb-bananas" class="label">
+                        <img class="fruits-img" th:src="@{/assets/fruits/bananas.png}" id="bananas" alt="바나나"/>
+                        </label>
+                    </div>
+
+                    <div class="item">
+                        <input type="checkbox" id="cb-cherries">
+                        <label for="cb-cherries" class="label">
+                        <img class="fruits-img" th:src="@{/assets/fruits/cherries.png}" id="cherries" alt="체리"/>
+                        </label>
+                    </div>
+
+                    <div class="item">
+                        <input type="checkbox" id="cb-durian">
+                        <label for="cb-durian" class="label">
+                        <img class="fruits-img" th:src="@{/assets/fruits/durian.png}" id="durian" alt="두리안"/>
+                        </label>
+                    </div>
+
+                    <div class="item">
+                        <input type="checkbox" id="cb-grapes">
+                        <label for="cb-grapes" class="label">
+                        <img class="fruits-img" th:src="@{/assets/fruits/grapes.png}" id="grapes" alt="포도"/>
+                        </label>
+                    </div>
+
+                    <div class="item">
+                        <input type="checkbox" id="cb-kiwi">
+                        <label for="cb-kiwi" class="label">
+                        <img class="fruits-img" th:src="@{/assets/fruits/kiwi.png}" id="kiwi" alt="키위"/>
+                        </label>
+                    </div>
+
+                    <div class="item">
+                        <input type="checkbox" id="cb-lemon">
+                        <label for="cb-lemon" class="label">
+                        <img class="fruits-img" th:src="@{/assets/fruits/lemon.png}" id="lemon" alt="레몬"/>
+                        </label>
+                    </div>
+
+                    <div class="item">
+                        <input type="checkbox" id="cb-passion-fruit">
+                        <label for="cb-passion-fruit" class="label">
+                        <img class="fruits-img" th:src="@{/assets/fruits/passion-fruit.png}" id="passion-fruit" alt="패션후르츠"/>
+                        </label>
+                    </div>
+
+                    <div class="item">
+                        <input type="checkbox" id="cb-watermelon">
+                        <label for="cb-watermelon" class="label">
+                        <img class="fruits-img" th:src="@{/assets/fruits/watermelon.png}" id="watermelon" alt="수박"/>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function Rotate() {
+        let element = document.getElementById('image');
+
+        if (element.className === "normal") {
+            element.className = "rotate";
+        }
+    }
+
+    $(document).on("click", ".btn-open", function (){
+        let target = $(this).attr("href");
+        $(target).addClass("show");
+    });
+
+    $(document).mouseup(function (e){
+        let popupLayer = $(".layer-popup");
+        let element = document.getElementById('image');
+        if(popupLayer.has(e.target).length === 0){
+            popupLayer.removeClass("show");
+            element.className = 'normal';
+        }
+    });
+
+    function filter(){
+        let value, name, items, i;
+
+        value = document.getElementById("value").value.toUpperCase();
+        items = document.getElementsByClassName("item");
+
+        for(i=0;i<items.length;i++){
+            name = items[i].getElementsByTagName("img");
+            if((name[0].id.toUpperCase().indexOf(value) > -1) || (name[0].alt.toUpperCase().indexOf(value) > -1)) {
+                items[i].style.display = "flex";
+            }else{
+                items[i].style.display = "none";
+            }
+        }
+    }
+</script>
+
+</body>
+</html>

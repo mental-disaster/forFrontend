@@ -9,7 +9,7 @@
       display: none;
     }
 
-    img {
+    .fruits-img {
       width: 128px;
       height: 128px;
     }
@@ -18,8 +18,8 @@
 </head>
 
 <body>
-<div>
 
+<div>
   <div>
     <h1>검색 결과 동적 출력(한영 모두 지원)</h1>
     <input onkeyup="filter()" type="text" id="value" placeholder="검색어를 입력하십시오">
@@ -27,47 +27,46 @@
 
   <div class="container">
     <div class="item">
-      <img class="img" th:src="@{/assets/fruits/apple.png}" id="apple" alt="사과"/>
+      <img class="fruits-img" th:src="@{/assets/fruits/apple.png}" id="apple" alt="사과"/>
     </div>
 
     <div class="item">
-      <img class="img" th:src="@{/assets/fruits/bananas.png}" id="bananas" alt="바나나"/>
+      <img class="fruits-img" th:src="@{/assets/fruits/bananas.png}" id="bananas" alt="바나나"/>
     </div>
 
     <div class="item">
-      <img class="img" th:src="@{/assets/fruits/cherries.png}" id="cherries" alt="체리"/>
+      <img class="fruits-img" th:src="@{/assets/fruits/cherries.png}" id="cherries" alt="체리"/>
     </div>
 
     <div class="item">
-      <img class="img" th:src="@{/assets/fruits/durian.png}" id="durian" alt="두리안"/>
+      <img class="fruits-img" th:src="@{/assets/fruits/durian.png}" id="durian" alt="두리안"/>
     </div>
 
     <div class="item">
-      <img class="img" th:src="@{/assets/fruits/grapes.png}" id="grapes" alt="포도"/>
+      <img class="fruits-img" th:src="@{/assets/fruits/grapes.png}" id="grapes" alt="포도"/>
     </div>
 
     <div class="item">
-      <img class="img" th:src="@{/assets/fruits/kiwi.png}" id="kiwi" alt="키위"/>
+      <img class="fruits-img" th:src="@{/assets/fruits/kiwi.png}" id="kiwi" alt="키위"/>
     </div>
 
     <div class="item">
-      <img class="img" th:src="@{/assets/fruits/lemon.png}" id="lemon" alt="레몬"/>
+      <img class="fruits-img" th:src="@{/assets/fruits/lemon.png}" id="lemon" alt="레몬"/>
     </div>
 
     <div class="item">
-      <img class="img" th:src="@{/assets/fruits/passion-fruit.png}" id="passion-fruit" alt="패션후르츠"/>
+      <img class="fruits-img" th:src="@{/assets/fruits/passion-fruit.png}" id="passion-fruit" alt="패션후르츠"/>
     </div>
 
     <div class="item">
-      <img class="img" th:src="@{/assets/fruits/watermelon.png}" id="watermelon" alt="수박"/>
+      <img class="fruits-img" th:src="@{/assets/fruits/watermelon.png}" id="watermelon" alt="수박"/>
     </div>
   </div>
-
 </div>
 
-<script type="text/javascript">
+<script>
   function filter(){
-    let value, name, items, item, i;
+    let value, name, items, i;
 
     value = document.getElementById("value").value.toUpperCase();
     items = document.getElementsByClassName("item");
@@ -88,6 +87,7 @@
     }
   }
 </script>
+
 </body>
 
 

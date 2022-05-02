@@ -5,8 +5,15 @@
     <meta charset="UTF-8">
     <title>누르면 +에서 x로 바뀌는 버튼</title>
     <style>
+        body {
+            padding-bottom: 3000px;
+        }
+
         #image{
-            width: 512px;
+            position: fixed;
+            right: 3%;
+            bottom: 3%;
+            width: 64px;
         }
 
         .rotate {
@@ -21,6 +28,9 @@
     </style>
 </head>
 <body>
+
+<img th:src="@{/assets/plus-circle-fill.svg}" alt="on off button" onclick="Rotate()" class="normal" id="image">
+
 <script>
     function Rotate() {
         let element = document.getElementById('image');
@@ -33,8 +43,6 @@
         }
     }
 </script>
-
-<img th:src="@{/assets/plus-circle-fill.svg}" alt="on off button" onclick="Rotate()" class="normal" id="image">
 
 </body>
 </html>
