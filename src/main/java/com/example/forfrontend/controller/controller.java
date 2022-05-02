@@ -21,4 +21,7 @@ public class controller {
 
     @GetMapping("/popup")
     public String popup() { return "/apps/popup"; }
+
+    @GetMapping("/checkbox")
+    public String checkbox() { return "/apps/checkbox"; }
 }

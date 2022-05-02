@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>이미지 체크박스</title>
+    <style>
+        #checkbox {
+            display: none;
+        }
+
+        #checkbox + .label img {
+            margin: 2px;
+        }
+
+        #checkbox:checked + .label img {
+            margin: 0;
+            border: 2px solid #0dcaf0;
+        }
+    </style>
+</head>
+<body>
+
+<input type="checkbox" id="checkbox">
+<label for="checkbox" class="label">
+    <img class="img" th:src="@{/assets/fruits/apple.png}" id="apple" alt="apple"/>
+</label>
+
+</body>
+</html>
