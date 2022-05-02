@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>창 위에 생기는 배너</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <style>
+        body {
+            padding-bottom: 3000px;
+        }
+
+        .popup-layer {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 100;
+        }
+
+        .popup-layer.show {
+            display: block;
+        }
+
+        .modal-dialog {
+            width: 300px;
+            margin: 40px auto;
+            background-color: #fff;
+        }
+
+        .modal-content {
+            padding:10px 15px;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+
+<a href="#popup-layer" class="btn-open">팝업 열기</a>
+
+<div class="container">
+    <div class="popup-layer" id="popup-layer">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                팝업 내용입니다.
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // 팝업 열기
+    $(document).on("click", ".btn-open", function (){
+        let target = $(this).attr("href");
+        $(target).addClass("show");
+    });
+
+    // 외부영역 클릭 시 팝업 닫기
+    $(document).mouseup(function (e){
+        let popupLayer = $(".popup-layer");
+        if(popupLayer.has(e.target).length === 0){
+            popupLayer.removeClass("show");
+        }
+    });
+</script>
+
+</body>
+</html>

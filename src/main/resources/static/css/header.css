@@ -2,29 +2,28 @@
     align-items: center;
 }
 
-#hamburger {
+#hamburger, #side-hamburger, #header-hamburger {
     display: none;
+}
+
+#side-hamburger, #header-hamburger {
     position: absolute;
 }
 
-#sideHamburger {
+#side-hamburger {
     left: 1rem;
 }
 
-#headerHamburger {
+#header-hamburger {
     right: 1rem;
 }
 
 @media (max-width: 680px) {
-    .header {
-        height: 1.8rem;
+    #hamburger, #side-hamburger, #header-hamburger {
+        display: block;
     }
 
-    #hamburger {
-        display: inline;
-    }
-
-    #headerMenu {
+    #header-menu {
         display: none;
     }
 }

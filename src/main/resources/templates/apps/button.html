@@ -1,21 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>누르면 +에서 x로 바뀌는 버튼</title>
     <style>
         #image{
             width: 512px;
-            transition: tranform 0.3s;
         }
 
         .rotate {
             transform: rotate(45deg);
+            transition: 400ms all ease-out;
         }
 
         .normal {
             transform: rotate(0deg);
+            transition: 400ms all ease-out;
         }
     </style>
 </head>
@@ -33,7 +34,7 @@
     }
 </script>
 
-<img src="/static/assets/plus-circle-fill.svg" alt="onOff" onclick="Rotate()" class="normal" id="image">
+<img th:src="@{/assets/plus-circle-fill.svg}" alt="on off button" onclick="Rotate()" class="normal" id="image">
 
 </body>
 </html>

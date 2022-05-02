@@ -1,23 +1,23 @@
 <div th:fragment="header" class="header">
-    <div class="d-flex justify-content-center py-3">
-        <ul class="nav nav-pills" id="headerMenu">
+    <div class="d-flex justify-content-center py-3" id="header">
+        <ul class="nav nav-pills" id="header-menu">
             <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
             <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
             <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
             <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
             <li class="nav-item"><a href="#" class="nav-link">About</a></li>
         </ul>
-    </div>
-    <div class="d-flex justify-content-between py-3" id="hamburger">
-        <ul class="nav nav-pills" id="sideHamburger">
-            <a href="#">
-                <img src="/asset/list.svg">
-            </a>
-        </ul>
-        <ul class="nav nav-pills" id="headerHamburger">
-            <a href="#">
-                <img src="/asset/list.svg">
-            </a>
+        <ul id="hamburger">
+            <li class="nav nav-pills" id="side-hamburger">
+                <a href="#">
+                    <img th:src="@{/assets/list.svg}">
+                </a>
+            </li>
+            <li class="nav nav-pills" id="header-hamburger">
+                <a href="#">
+                    <img th:src="@{/assets/list.svg}">
+                </a>
+            </li>
         </ul>
     </div>
 </div>
